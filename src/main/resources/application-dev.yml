@@ -1,0 +1,33 @@
+---
+spring.profiles: dev
+server.port: 9500
+---
+# ===============================
+# = DATA SOURCE
+# ===============================
+# Set here configurations for the database connection
+spring.datasource.jdbc-url: jdbc:postgresql://localhost:5432/clientdb
+spring.datasource.username: postgres
+spring.datasource.password: postgres
+spring.datasource.driver-class-name: org.postgresql.Driver
+spring.datasource.initialization-mode: never
+spring.datasource.type: com.zaxxer.hikari.HikariDataSource
+
+spring.datasource.hikari.connection-timeout: 10000
+spring.datasource.hikari.maximum-pool-size: 10
+spring.datasource.hikari.idle-timeout:  60000
+
+psqldatasource.jpa.database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+psqldatasource.jpa.database: PostgreSQL
+psqldatasource.jpa.show-sql: false
+
+spring.jpa.properties.hibernate.id.new_generator_mappings: true
+spring.jpa.properties.hibernate.cache.use_second_level_cache: false
+spring.jpa.properties.hibernate.cache.use_query_cache: false
+spring.jpa.properties.hibernate.generate_statistics: false
+spring.jpa.properties.hibernate.use_sql_comments: true      # HQL comments
+spring.jpa.properties.hibernate.format_sql: true
+# to avoid java.sql.SQLFeatureNotSupportedException: Method org.postgresql.jdbc.PgConnection.createClob() is not yet implemented.
+# see https://github.com/spring-projects/spring-boot/issues/12007#issuecomment-369388646
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation: true
+#logging.level.org.hibernate.type: trace                    # log Query params

@@ -1,0 +1,7 @@
+FROM postgres:latest
+
+WORKDIR /home/init-psql
+
+ADD psql-init.sh /home/init-psql
+
+COPY psql-init.sh /docker-entrypoint-initdb.d/

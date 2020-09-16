@@ -1,0 +1,4 @@
+INSERT INTO client (CLIENT_ID, NAME, ADDRESS) VALUES
+  ('3a3e99f0-5ad9-47fa-961d-d75fab32ef0e', 'YURIY', 'KIEV');
+
+COMMIT;
